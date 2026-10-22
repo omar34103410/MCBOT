@@ -4,7 +4,7 @@ const botOptions = {
   host: 'easyplay.aternos.me',
   port: 62029,
   username: 'AFKBOT',
-  version: '1.20.4', // Replace with your exact server version
+  version: '1.20.4',
   hideErrors: true
 };
 
@@ -16,14 +16,12 @@ function createBotInstance() {
 
   bot.on('spawn', () => {
     console.log(`Successfully logged in as: ${bot.username}`);
-    bot.chat('AFKBOT مرحبا انا .');
-    
     startAutoJump();
   });
 
   bot.on('end', (reason) => {
-    console.log(`Connection lost (${reason}). Reconnecting in 10s...`);
-    setTimeout(createBotInstance, 10000);
+    console.log(`Connection lost (${reason}). Reconnecting in 120s...`);
+    setTimeout(createBotInstance, 120000);
   });
 
   bot.on('error', (err) => {
