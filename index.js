@@ -5,7 +5,7 @@ const botOptions = {
   port: 62029,
   username: 'AFKBOT',
   version: '1.20.4',
-  hideErrors: true
+  hideErrors: false
 };
 
 let bot;
