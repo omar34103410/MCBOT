@@ -4,7 +4,7 @@ const botOptions = {
   host: 'easyplay.aternos.me',
   port: 62029,
   username: 'AFKBOT',
-  version: '1.21.11', 
+  version: '1.21.4', 
   hideErrors: true
 };
 
