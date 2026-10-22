@@ -4,6 +4,8 @@ const botOptions = {
   host: 'easyplay.aternos.me',
   port: 62029,
   username: 'AFKBOT',
+  version: '1.21.11', 
+  hideErrors: true
 };
 
 let bot;
@@ -14,15 +16,7 @@ function createBotInstance() {
 
   bot.on('spawn', () => {
     console.log(`Successfully logged in as: ${bot.username}`);
-    bot.chat('Hello! I am running via GitHub.');
-  });
-
-  bot.on('chat', (username, message) => {
-    if (username === bot.username) return;
-
-    if (message === '!ping') {
-      bot.chat('Pong!');
-    }
+    bot.chat('AFKBOT مرحبا انا.');
   });
 
   bot.on('end', (reason) => {
