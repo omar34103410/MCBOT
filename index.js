@@ -4,7 +4,7 @@ const botOptions = {
   host: 'easyplay.aternos.me',
   port: 62029,
   username: 'AFKBOT',
-  version: '1.20.4', 
+  version: '1.20.4', // Replace with your exact server version
   hideErrors: true
 };
 
@@ -16,7 +16,9 @@ function createBotInstance() {
 
   bot.on('spawn', () => {
     console.log(`Successfully logged in as: ${bot.username}`);
-    bot.chat('AFKBOT مرحبا انا.');
+    bot.chat('AFKBOT مرحبا انا .');
+    
+    startAutoJump();
   });
 
   bot.on('end', (reason) => {
@@ -27,6 +29,21 @@ function createBotInstance() {
   bot.on('error', (err) => {
     console.error('Bot error:', err.message);
   });
+}
+
+function startAutoJump() {
+  setInterval(() => {
+    if (!bot || !bot.entity) return;
+    
+    bot.setControlState('jump', true);
+    setTimeout(() => {
+      bot.setControlState('jump', false);
+    }, 500);
+
+    const yaw = Math.random() * Math.PI * 2;
+    const pitch = (Math.random() - 0.5) * Math.PI;
+    bot.look(yaw, pitch, false);
+  }, 10000);
 }
 
 createBotInstance();
