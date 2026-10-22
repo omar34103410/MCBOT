@@ -21,7 +21,7 @@ function createBotInstance() {
 
   bot.on('end', (reason) => {
     console.log(`Connection lost (${reason}). Reconnecting in 120s...`);
-    setTimeout(createBotInstance, 120000);
+    setTimeout(createBotInstance, 1000);
   });
 
   bot.on('error', (err) => {
